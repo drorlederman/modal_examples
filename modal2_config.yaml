@@ -1,0 +1,11 @@
+#Since Modal runs in a remote environment, your YAML config file needs to be stored in a volume.
+#modal volume create config_volume
+#modal volume put config_volume config.yaml
+
+folders:
+  model_path: "/data"
+  data_path: "/data"
+  local_download_path: "/results"
+
+settings:
+  use_gpu: true
