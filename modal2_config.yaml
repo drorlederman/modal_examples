@@ -9,3 +9,6 @@ folders:
 
 settings:
   use_gpu: true
+  target_size: [150, 150]
+  batch_size: 32
+  epochs: 10

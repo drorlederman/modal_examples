@@ -19,7 +19,7 @@ def train_model(target_size=(150, 150), batch_size=32, epochs=10, use_gpu=True, 
     """
     import os
     import zipfile
-
+    print(target_size)
     # Initialize Weights & Biases
     wandb.init(project="dog-cat-classification", config={
         "target_size": target_size,
@@ -46,8 +46,11 @@ def train_model(target_size=(150, 150), batch_size=32, epochs=10, use_gpu=True, 
     val_dir = os.path.join(data_path, "val")
 
     # Define data transformations
+    #target_size = (target_size[0], target_size[1])
+    target_size = tuple(target_size)
+    print(f"Target size: {target_size} (Type: {type(target_size)})")
     transform = transforms.Compose([
-        transforms.Resize(target_size),
+        transforms.Resize(tuple(target_size)),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
     ])
