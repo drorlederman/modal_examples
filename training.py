@@ -7,6 +7,7 @@ from torch.utils.data import DataLoader
 from architecture import CNNModel
 import torch.nn as nn
 import os
+import zipfile
 
 def train_model(target_size=(150, 150), batch_size=32, epochs=10, use_gpu=True, data_path='', model_path=''):
     """
@@ -17,9 +18,8 @@ def train_model(target_size=(150, 150), batch_size=32, epochs=10, use_gpu=True, 
         batch_size (int): Number of images per batch.
         epochs (int): Number of training epochs.
     """
-    import os
-    import zipfile
-    print(target_size)
+
+    print('***')
     # Initialize Weights & Biases
     wandb.init(project="dog-cat-classification", config={
         "target_size": target_size,
@@ -46,9 +46,7 @@ def train_model(target_size=(150, 150), batch_size=32, epochs=10, use_gpu=True, 
     val_dir = os.path.join(data_path, "val")
 
     # Define data transformations
-    #target_size = (target_size[0], target_size[1])
     target_size = tuple(target_size)
-    print(f"Target size: {target_size} (Type: {type(target_size)})")
     transform = transforms.Compose([
         transforms.Resize(tuple(target_size)),
         transforms.ToTensor(),
