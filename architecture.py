@@ -1,7 +1,10 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+
 # Define CNN Model
+# ------------------------------------------------------------
+
 class CNNModel(nn.Module):
     def __init__(self, target_size=(224, 224)):
         super(CNNModel, self).__init__()
