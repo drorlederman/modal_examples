@@ -1,0 +1,10 @@
+folders:
+  model_path: "results/models"
+  data_path: "data"
+  local_download_path: "results/downloads"
+
+settings:
+  use_gpu: true
+  target_size: [224, 224]
+  batch_size: 32
+  epochs: 10 

@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 # Define CNN Model
 class CNNModel(nn.Module):
-    def __init__(self, target_size=(150, 150)):
+    def __init__(self, target_size=(224, 224)):
         super(CNNModel, self).__init__()
         self.conv1 = nn.Conv2d(3, 32, kernel_size=3, stride=1, padding=1)
         self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
